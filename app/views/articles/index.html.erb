@@ -1,0 +1,26 @@
+<h1>Articles</h1>
+  <div id="top"></div>
+<%= link_to 'New Article', new_article_path, class:"btn btn-success mt-3 mb-4" %>
+
+<% @articles.each do |article| %>
+  
+  <div class="card text-center mb-4">
+    <div class="card-header">
+      Username
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= article.title %></h5>
+      <p class="card-text"><%= article.description %></p>
+      <%= link_to 'View', article_path(article), class:"btn btn-outline-success" %>
+      <%= link_to 'Edit', edit_article_path(article), class:"btn btn-outline-info" %>
+      <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-outline-danger" %>
+    </div>
+    <div class="card-footer text-muted">
+      Created <%= time_ago_in_words(article.created_at) %> ago,
+      Updated <%= time_ago_in_words(article.updated_at) %> ago.
+    </div>
+  </div>
+
+<% end %>
+
+<%= link_to 'Top', articles_path, class:"btn btn-outline-secondary btn-sm mb-3" %>
