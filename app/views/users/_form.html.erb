@@ -1,0 +1,27 @@
+<%= render 'shared/errors', obj: @user %>
+
+<%= form_with model: @user do |f| %>
+  <div class="form-color container py-4 shadow rounded">
+    <div class="mb-3 row">
+      <%= f.label :username, class:"col-sm-3 col-form-label",for:"username" %>
+      <div class="col-sm-9">
+        <%= f.text_field :username, class:"form-control", placeholder:"Choose your username", id:"username" %>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <%= f.label :email, class:"col-sm-3 col-form-label", for:"email" %>
+      <div class="col-sm-9">
+        <%= f.email_field :email, class:"form-control", placeholder:"Enter your e-mail", id:"email" %>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <%= f.label :password, class:"col-sm-3 col-form-label", for:"pswd" %>
+      <div class="col-sm-9">
+        <%= f.password_field :password, class:"form-control", placeholder:"Choose your password", id:"pswd" %>
+      </div>
+    </div>
+    <div class="col-auto mb-3">
+      <%= f.submit 'Sign Up', class:"btn btn-outline-success" %>
+    </div>
+  </div>
+<% end %>

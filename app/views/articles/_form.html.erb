@@ -1,31 +1,19 @@
-<style>
-  .form-color {
-    background-color: #aaa
-  }
-</style>
-
-<% if @article.errors.any? %>
-  <div class="alert alert-danger alert-dismissible fade show shadow rounded" role="alert">
-    <h5>The following items must be corrected:</h5>
-    <ul class="text-start">
-      <% @article.errors.full_messages.each do |msg| %>
-        <li class=""><%= msg %></li>
-      <% end %>
-    </ul>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-<% end %>
+<%= render 'shared/errors', obj: @article %>
 
 <%= form_with model: @article do |f| %>
 <div class="form-color container py-4 shadow rounded">
  
-  <div class="mb-3">
-    <h5><%= f.label :title, class:"form-label", for:"title" %></h5>
-    <%= f.text_field :title, class:"form-control", id:"title", placeholder:"Title of Article" %>
+  <div class="mb-3 row">
+    <%= f.label :title, class:"col-sm-3 col-form-label", for:"title" %>
+    <div class="col-sm-9">
+      <%= f.text_field :title, class:"form-control", id:"title", placeholder:"Title of Article" %>
+    </div>
   </div>
-  <div class="mb-3">
-    <h5><%= f.label :description, class:"form-label", for:"description" %></h5>
-    <%= f.text_area :description, class:"form-control", id:"description", placeholder:"Description of Article", rows:5 %>
+  <div class="mb-3 row">
+    <%= f.label :description, class:"col-sm-3 col-form-label", for:"description" %>
+    <div class="col-sm-9">
+      <%= f.text_area :description, class:"form-control", id:"description", placeholder:"Description of Article", rows:5 %>
+    </div>
   </div>
   <div class="my-4">
       <%= f.submit class:"btn btn-outline-success" %>
