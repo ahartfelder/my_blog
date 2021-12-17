@@ -1,5 +1,11 @@
+<style>
+  .form-color {
+    background-color: #aaa
+  }
+</style>
+
 <% if @article.errors.any? %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <div class="alert alert-danger alert-dismissible fade show shadow rounded" role="alert">
     <h5>The following items must be corrected:</h5>
     <ul class="text-start">
       <% @article.errors.full_messages.each do |msg| %>
@@ -11,18 +17,22 @@
 <% end %>
 
 <%= form_with model: @article do |f| %>
-<div class="mb-3">
-  <%= f.label :title, class:"form-label", for:"title" %>
-  <%= f.text_field :title, class:"form-control", id:"title", placeholder:"Title of Article" %>
-</div>
-<div class="mb-3">
-  <%= f.label :description, class:"form-label", for:"description" %>
-  <%= f.text_area :description, class:"form-control", id:"description", placeholder:"Description of Article", rows:8 %>
-</div>
-<div class="mb-3">
-    <%= f.submit class:"btn btn-outline-success" %>
+<div class="form-color container py-4 shadow rounded">
+ 
+  <div class="mb-3">
+    <%= f.label :title, class:"form-label", for:"title" %>
+    <%= f.text_field :title, class:"form-control", id:"title", placeholder:"Title of Article" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :description, class:"form-label", for:"description" %>
+    <%= f.text_area :description, class:"form-control", id:"description", placeholder:"Description of Article", rows:8 %>
+  </div>
+  <div class="my-4">
+      <%= f.submit class:"btn btn-outline-success" %>
+  </div>
+
 </div>
 
-<%= link_to 'Return', articles_path, class:"btn btn-outline-secondary btn-sm mb-3" %>
+<%= link_to 'Return', articles_path, class:"btn btn-outline-secondary btn-sm mb-3 mt-4" %>
 
 <% end %>

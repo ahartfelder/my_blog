@@ -8,3 +8,8 @@ html, body {
 .page {
     flex: 1 0 auto;
 }
+
+.kombi {
+    background: asset-url('kombi.jpg') top center/cover no-repeat;
+    min-height: 400px;
+  }
