@@ -1,5 +1,7 @@
 <h1><%= @user.username.capitalize %>'s Profile</h1>
 
-<%= link_to 'Edit your Profile', edit_user_path(@user), class:"btn btn-outline-info mb-3" %>
+<% if logged_in? && (@user == current_user || current_user.admin?) %>
+  <%= link_to 'Edit your Profile', edit_user_path(@user), class:"btn btn-outline-info mb-3" %>
+<% end %>
 
 <%= render 'articles/article', obj: @user.articles %>

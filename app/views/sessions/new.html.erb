@@ -1,6 +1,6 @@
 <h1>Log In</h1>
 
-<%= form_with scope: @session, url: login_path do |f| %>
+<%= form_with(scope: :session, url: login_path, local: true) do |f| %>
   <div class="form-color container py-4 shadow rounded">
     <div class="mb-3 row">
       <%= f.label :email, class:"col-sm-3 col-form-label", for:"email" %>
