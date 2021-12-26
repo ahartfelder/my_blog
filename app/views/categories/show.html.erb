@@ -1,0 +1,15 @@
+<h1><%= @category.name %></h1>
+
+<% if logged_in? && current_user.admin? %>
+  <%= link_to 'Edit Category', edit_category_path(@category), class:"btn btn-outline-info mb-3" %>
+<% end %>
+
+<div class="flickr_pagination">
+  <%= will_paginate @articles, :container => false %>
+</div>
+
+<%= render 'articles/article', obj: @category.articles %>
+
+<div class="flickr_pagination">
+  <%= will_paginate @articles, :container => false %>
+</div>

@@ -1,5 +1,9 @@
 <h1>My Bloggers</h1>
 
+<div class="flickr_pagination">
+  <%= will_paginate @users, :container => false %>
+</div>
+
 <% @users.each do |user| %>
   
   <div class="card text-center mb-4 shadow rounded">
@@ -25,3 +29,7 @@
   </div>
 
 <% end %>
+
+<div class="flickr_pagination">
+  <%= will_paginate @users, :container => false %>
+</div>

@@ -1,0 +1,18 @@
+<%= render 'shared/errors', obj: @category %>
+
+<%= form_with model: @category do |f| %>
+  <div class="form-color container py-4 shadow rounded">
+    <div class="mb-3 row">
+      <%= f.label :name, "Category name", class:"col-sm-3 col-form-label",for:"name" %>
+      <div class="col-sm-9">
+        <%= f.text_field :name, class:"form-control", placeholder:"Enter category name", id:"name" %>
+      </div>
+    </div>
+    
+    <div class="col-auto mb-3">
+      <%= f.submit class:"btn btn-outline-success" %>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to 'Return', categories_path, class:"btn btn-secondary btn-sm my-3" %>
