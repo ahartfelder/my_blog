@@ -1,4 +1,4 @@
-<% obj.each do |article| %>
+<% obj.order("updated_at desc").each do |article| %>
   
   <div class="card text-center my-4 shadow rounded">
     <div class="card-header">
