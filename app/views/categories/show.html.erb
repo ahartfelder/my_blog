@@ -1,7 +1,7 @@
 <h1><%= @category.name %></h1>
 
 <% if logged_in? && current_user.admin? %>
-  <%= link_to 'Edit Category', edit_category_path(@category), class:"btn btn-outline-info mb-3" %>
+  <%= link_to 'Edit Category', edit_category_path(@category), class:"btn btn-outline-secondary btn-sm mb-2" %>
 <% end %>
 
 <div class="flickr_pagination">
@@ -13,3 +13,5 @@
 <div class="flickr_pagination">
   <%= will_paginate @articles, :container => false %>
 </div>
+
+<%= link_to 'Return', categories_path, class:"btn btn-secondary btn-sm my-3" %>
