@@ -1,0 +1,12 @@
+<div class="card mb-3">
+  <div class="card-header">
+    <%= link_to comment.user.username, comment.user %>
+  </div>
+  <div class="card-body">
+    <p><%= comment.body %></p>
+    <%= link_to 'Delete', [comment.article, comment], method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-outline-danger btn-sm" if logged_in? && (comment.user == current_user || current_user.admin?) %>
+  </div>
+  <div class="card-footer text-muted">
+    <small>Posted <%= time_ago_in_words(comment.created_at) %> ago</small>
+  </div>
+</div>

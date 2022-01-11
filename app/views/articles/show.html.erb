@@ -22,4 +22,13 @@
   </div>
 </div>
 
-<%= link_to 'Return', articles_path, class:"btn btn-secondary btn-sm mb-3" %>
+<h3>Comments:</h3>
+<p><%= 'No comments yet' if @article.comments.empty? %></p>
+<%= render @article.comments %>
+
+<% if logged_in? %>
+  <h3>Add a Comment:</h3>
+  <%= render 'comments/form' %>
+<% end %>
+
+<p><%= link_to 'Return', articles_path, class:"btn btn-secondary btn-sm mb-3" %></p>
